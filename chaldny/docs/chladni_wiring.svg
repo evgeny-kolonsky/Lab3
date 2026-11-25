@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 720" font-family="Arial, Helvetica, sans-serif" font-size="14">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker>
+    <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#bbb" stroke-width="2"/></pattern>
+  </defs>
+  <rect width="1100" height="720" fill="white"/>
+  <text x="550" y="34" text-anchor="middle" font-size="21" font-weight="bold">Chladni / mechanical resonance — wiring diagram</text>
+
+  <!-- ================= Oscilloscope ================= -->
+  <rect x="40" y="70" width="330" height="200" rx="10" fill="#eef3fb" stroke="#2b5797" stroke-width="2"/>
+  <text x="205" y="98" text-anchor="middle" font-weight="bold" font-size="16">Keysight DSO-X 2002A</text>
+  <text x="205" y="117" text-anchor="middle" font-size="12" fill="#555">rear USB (type B) → PC (VISA / pyvisa)</text>
+  <g font-size="13">
+    <circle cx="90" cy="225" r="13" fill="#ddd" stroke="#333" stroke-width="2"/><circle cx="90" cy="225" r="4" fill="#333"/>
+    <text x="90" y="198" text-anchor="middle" font-weight="bold">Gen Out</text>
+    <circle cx="205" cy="225" r="13" fill="#ffe9a8" stroke="#333" stroke-width="2"/><circle cx="205" cy="225" r="4" fill="#333"/>
+    <text x="205" y="198" text-anchor="middle" font-weight="bold">CH1 (current)</text>
+    <circle cx="315" cy="225" r="13" fill="#c9f0d0" stroke="#333" stroke-width="2"/><circle cx="315" cy="225" r="4" fill="#333"/>
+    <text x="318" y="198" text-anchor="middle" font-weight="bold">CH2 (voltage)</text>
+  </g>
+  <line x1="150" y1="270" x2="150" y2="295" stroke="#333" stroke-width="2"/>
+  <line x1="135" y1="295" x2="165" y2="295" stroke="#333" stroke-width="2"/><line x1="140" y1="301" x2="160" y2="301" stroke="#333" stroke-width="2"/><line x1="145" y1="307" x2="155" y2="307" stroke="#333" stroke-width="2"/>
+  <text x="150" y="324" text-anchor="middle" font-size="11" fill="#555">earth</text>
+
+  <!-- ================= Amplifier ================= -->
+  <rect x="40" y="420" width="250" height="160" rx="10" fill="#f6f6f6" stroke="#444" stroke-width="2"/>
+  <text x="165" y="448" text-anchor="middle" font-weight="bold" font-size="16">Power amplifier</text>
+  <text x="165" y="466" text-anchor="middle" font-size="12" fill="#555">gain G, low-Z output</text>
+  <circle cx="80" cy="520" r="11" fill="#ddd" stroke="#333" stroke-width="2"/><circle cx="80" cy="520" r="3.5" fill="#333"/>
+  <text x="80" y="550" text-anchor="middle" font-size="12">IN</text>
+  <circle cx="270" cy="500" r="9" fill="#e53935" stroke="#333" stroke-width="1.5"/>
+  <text x="250" y="505" text-anchor="end" font-size="13" font-weight="bold">OUT +</text>
+  <circle cx="270" cy="555" r="9" fill="#222" stroke="#333" stroke-width="1.5"/>
+  <text x="250" y="560" text-anchor="end" font-size="13" font-weight="bold">OUT − / COM</text>
+
+  <!-- Gen out -> amp in (coax) -->
+  <path d="M90,238 L90,340 L25,340 L25,520 L69,520" fill="none" stroke="#1565c0" stroke-width="4"/>
+  <path d="M90,238 L90,340 L25,340 L25,520 L69,520" fill="none" stroke="#90caf9" stroke-width="1.3" stroke-dasharray="6 4"/>
+  <text transform="translate(17,510) rotate(-90)" font-size="12" fill="#1565c0">BNC coax: sine, ≤ 2 Vpp</text>
+
+  <!-- ================= Driver + plate ================= -->
+  <rect x="720" y="70" width="300" height="14" fill="url(#hatch)" stroke="#555"/>
+  <text x="870" y="62" text-anchor="middle" font-size="13">plate (sand / salt on top)</text>
+  <line x1="870" y1="84" x2="870" y2="130" stroke="#555" stroke-width="5"/>
+  <rect x="800" y="130" width="140" height="120" rx="8" fill="#fff5e6" stroke="#e08a00" stroke-width="2"/>
+  <text x="870" y="152" text-anchor="middle" font-weight="bold">Wave driver</text>
+  <text x="870" y="168" text-anchor="middle" font-size="11" fill="#555">Arbor Scientific, 1 A fuse</text>
+  <path d="M825,205 q8,-18 16,0 q8,-18 16,0 q8,-18 16,0 q8,-18 16,0 q8,-18 16,0 q8,-18 16,0" fill="none" stroke="#333" stroke-width="2"/>
+  <line x1="788" y1="205" x2="825" y2="205" stroke="#333" stroke-width="2"/>
+  <line x1="921" y1="205" x2="952" y2="205" stroke="#333" stroke-width="2"/>
+  <circle cx="780" cy="205" r="8" fill="#e53935" stroke="#333"/><text x="752" y="232" font-size="13" font-weight="bold">A</text>
+  <circle cx="960" cy="205" r="8" fill="#222" stroke="#333"/><text x="968" y="232" font-size="13" font-weight="bold">B</text>
+
+  <!-- ================= Power wiring ================= -->
+  <path d="M279,500 L740,500 L740,205 L772,205" fill="none" stroke="#e53935" stroke-width="4"/>
+  <path d="M968,205 L1060,205 L1060,440 L900,440" fill="none" stroke="#222" stroke-width="4"/>
+  <circle cx="900" cy="440" r="7" fill="#222"/>
+  <text x="912" y="432" font-weight="bold">N</text>
+  <line x1="900" y1="440" x2="900" y2="465" stroke="#222" stroke-width="4"/>
+  <rect x="885" y="465" width="30" height="65" fill="#fff" stroke="#222" stroke-width="3"/>
+  <text x="925" y="490" font-weight="bold">R<tspan font-size="11" dy="4">sh</tspan></text>
+  <text x="925" y="508" font-size="12" fill="#555">≈ 1 Ω, ≥ 1 W,</text>
+  <text x="925" y="523" font-size="12" fill="#555">low inductance</text>
+  <line x1="900" y1="530" x2="900" y2="555" stroke="#222" stroke-width="4"/>
+  <circle cx="900" cy="555" r="7" fill="#222"/>
+  <text x="912" y="575" font-weight="bold">G</text>
+  <path d="M900,555 L279,555" fill="none" stroke="#222" stroke-width="4"/>
+  <path d="M560,488 L630,488" stroke="#e53935" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="595" y="480" text-anchor="middle" fill="#e53935" font-style="italic" font-weight="bold">I</text>
+
+  <!-- ================= Diff. probe 2: driver voltage ================= -->
+  <rect x="520" y="240" width="160" height="70" rx="8" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2"/>
+  <text x="600" y="263" text-anchor="middle" font-weight="bold">Diff. probe 2</text>
+  <text x="600" y="281" text-anchor="middle" font-weight="bold">voltage</text>
+  <text x="600" y="299" text-anchor="middle" font-size="11" fill="#555">×10 / ×20 / ×50</text>
+  <path d="M680,255 L770,255 L777,213" fill="none" stroke="#2e7d32" stroke-width="2.5"/>
+  <text x="688" y="248" font-size="13" fill="#2e7d32" font-weight="bold">+ → A</text>
+  <path d="M680,295 L985,295 L985,212 L967,207" fill="none" stroke="#2e7d32" stroke-width="2.5"/>
+  <text x="890" y="313" font-size="13" fill="#2e7d32" font-weight="bold">− → B</text>
+  <path d="M520,275 L315,275 L315,238" fill="none" stroke="#2e7d32" stroke-width="3"/>
+  <text x="330" y="292" font-size="12" fill="#2e7d32">BNC → CH2 :  U across driver only</text>
+
+  <!-- ================= Diff. probe 1: shunt (current) ================= -->
+  <rect x="520" y="345" width="160" height="70" rx="8" fill="#fff8e1" stroke="#f9a825" stroke-width="2"/>
+  <text x="600" y="368" text-anchor="middle" font-weight="bold">Diff. probe 1</text>
+  <text x="600" y="386" text-anchor="middle" font-weight="bold">current (shunt)</text>
+  <text x="600" y="404" text-anchor="middle" font-size="11" fill="#555">lowest ratio (×10)</text>
+  <path d="M680,360 L900,360 L900,433" fill="none" stroke="#f9a825" stroke-width="2.5"/>
+  <text x="790" y="352" font-size="13" fill="#a07000" font-weight="bold">+ → N</text>
+  <path d="M680,400 L820,400 L820,600 L900,600 L900,562" fill="none" stroke="#f9a825" stroke-width="2.5"/>
+  <text x="828" y="598" font-size="13" fill="#a07000" font-weight="bold">− → G</text>
+  <path d="M520,380 L205,380 L205,238" fill="none" stroke="#f9a825" stroke-width="3"/>
+  <text x="225" y="372" font-size="12" fill="#a07000">BNC → CH1 :  U = I·R<tspan font-size="9" dy="3">sh</tspan></text>
+
+  <!-- ================= Notes ================= -->
+  <rect x="300" y="615" width="770" height="96" rx="8" fill="#fffde7" stroke="#f9a825"/>
+  <g font-size="12.5">
+    <text x="315" y="635">① Both channels via differential probes: no ground loop through the scope, any amplifier type (incl. BTL) is OK.</text>
+    <text x="315" y="652">② Shunt on the LOW side (N–G) → common-mode voltage ≈ 0 for probe 1. Keep U<tspan font-size="9" dy="3">sh</tspan><tspan dy="-3"> ≥ 50 mV (R</tspan><tspan font-size="9" dy="3">sh</tspan><tspan dy="-3"> ≈ 1 Ω).</tspan></text>
+    <text x="315" y="669">③ Enter both probe ratios and R<tspan font-size="9" dy="3">sh</tspan><tspan dy="-3"> in the program. Check: replace the driver by a 4–8 Ω resistor → φ ≈ 0°, |Z| = R.</tspan></text>
+    <text x="315" y="686">④ Twist power leads (A–OUT+, B–N–G). If φ ≈ ±180°, swap probe-1 leads or tick “invert current”.</text>
+    <text x="315" y="703">⑤ Current limit ≤ 0.7 A rms (driver fuse 1 A). Active diff. probes need their own power supply / battery.</text>
+  </g>
+</svg>
